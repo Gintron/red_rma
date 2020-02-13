@@ -1,41 +1,43 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="60dp"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
+    android:layout_width="100dp"
+    android:layout_height="wrap_content"
     android:layout_marginStart="10dp"
-    android:layout_height="wrap_content">
+    android:layout_marginTop="8dp"
+    android:orientation="horizontal">
 
     <RelativeLayout
-        android:layout_width="50dp"
-        android:layout_height="50dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="5dp">
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="45dp"
-            android:layout_height="45dp"
+        <ImageView
+            android:id="@+id/story_photo"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:layout_centerHorizontal="true"
-            android:src="@drawable/placeholder"
-            android:id="@+id/story_photo"/>
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:src="@drawable/placeholder" />
 
-        <de.hdodenhof.circleimageview.CircleImageView
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:src="@drawable/add_story"
+        <ImageView
             android:id="@+id/story_plus"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"/>
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignBottom="@+id/story_photo"
+            android:layout_alignParentEnd="true"
+            android:src="@drawable/add_story" />
 
     </RelativeLayout>
 
     <TextView
+        android:id="@+id/addstory_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/addstory_text"
-        android:textColor="@color/colorPrimaryDark"
         android:layout_gravity="center"
-        android:maxLines="1"/>
+        android:maxLines="1"
+        android:textColor="@color/colorPrimaryDark"
+        android:visibility="gone" />
 
 </LinearLayout>

@@ -1,6 +1,28 @@
 <resources>
-    <string name="app_name">InstagramTest</string>
+    <string name="app_name">Red</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="publicuser">Public</string>
+    <string name="privateuser">Private</string>
+    <string name="personText">Are you a public or private person?</string>
+    <string name="followingText">Following</string>
+    <string name="watchingText">Watching</string>
+    <string name="selectTypeOfPost">Select type of post:</string>
+    <string name="article">Article</string>
+    <string name="imgVid">Image or Video</string>
+    <string name="spinnerName">Category:</string>
+    <string name="articleName">Article name</string>
+    <string name="articleContent">Article content</string>
+    <string name="publish">Publish</string>
+    <string name="description">Description</string>
+    <string-array name="category">
+        <item>Sport</item>
+        <item>Animals</item>
+        <item>Movies</item>
+        <item>Technology</item>
+        <item>Travel</item>
+    </string-array>
+
+
 </resources>

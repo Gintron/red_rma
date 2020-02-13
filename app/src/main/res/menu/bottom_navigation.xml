@@ -8,9 +8,9 @@
         android:title=""/>
 
     <item
-        android:id="@+id/nav_search"
-        android:icon="@drawable/ic_search"
-        android:title=""/>
+        android:id="@+id/messages__icon"
+        android:icon="@drawable/ic_inbox"
+        android:title="" />
 
     <item
         android:id="@+id/nav_add"

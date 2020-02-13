@@ -35,11 +35,11 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
-                    android:text="POST"
+                    android:text="ADD EVENT"
                     android:id="@+id/post"
                     android:textSize="16sp"
                     android:layout_centerVertical="true"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#F20530"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true" />
 
@@ -63,13 +63,49 @@
             android:id="@+id/image_added"/>
 
         <EditText
+            android:id="@+id/timeevent"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="15dp"
-            android:hint="Description"
+            android:hint="time"
+            android:focusable="false"
+            />
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="Date"
+            android:focusable="false"
+            android:id="@+id/dateevent"
+           />
+
+        <EditText
+            android:id="@+id/locationevent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="Street Adress" />
+
+        <EditText
+            android:id="@+id/cityevent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:ems="10"
+            android:gravity="start|top"
+            android:hint="City"
+            android:inputType="textMultiLine" />
+
+        <EditText
             android:id="@+id/description"
-            android:maxLines="5"/>
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:hint="Title"
+            android:maxLines="5" />
 
     </LinearLayout>
+
+
 
 </LinearLayout>

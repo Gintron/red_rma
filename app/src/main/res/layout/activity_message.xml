@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#e6e6e6"
+    tools:context="com.marijan.red.MessageActivity">
+
+    <FrameLayout
+        android:id="@+id/fragment_container1"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/bar_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="#fff">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/profile_image_right"
+                android:layout_width="30dp"
+                android:layout_height="30dp" />
+
+            <TextView
+                android:id="@+id/username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="25dp"
+                android:layout_marginLeft="25dp"
+                android:textColor="#000"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </android.support.v7.widget.Toolbar>
+
+    </android.support.design.widget.AppBarLayout>
+
+
+    <android.support.v4.widget.SwipeRefreshLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:id="@+id/refreshLayout"
+        android:background="#fff"
+        android:layout_above="@+id/sendLayout"
+        android:layout_below="@id/bar_layout" >
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/sendLayout"
+        android:layout_below="@id/bar_layout" />
+    </android.support.v4.widget.SwipeRefreshLayout>
+    <LinearLayout
+        android:layout_alignParentBottom="true"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:id="@+id/sendLayout">
+
+        <LinearLayout
+        android:id="@+id/bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:background="@android:color/white"
+        android:orientation="horizontal"
+        android:weightSum="10">
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="4dp">
+                <ProgressBar
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:id="@+id/progressbar"
+                    android:visibility="gone"
+                    android:padding="10dp"
+                    android:layout_centerInParent="true"
+
+                    />
+
+                <ImageButton
+                    android:id="@+id/image_select"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:background="@android:color/white"
+                    android:padding="10dp"
+                    android:scaleType="centerCrop"
+                    app:srcCompat="@drawable/photoimage" />
+            </RelativeLayout>
+
+
+        <EditText
+            android:id="@+id/text_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="8"
+            android:background="@android:color/white"
+            android:ems="10"
+            android:hint="Enter Message..."
+            android:inputType="textCapSentences"
+            android:paddingBottom="12dp"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="10dp"
+            />
+
+
+
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:layout_marginTop="3dp"
+                android:layout_marginEnd="5dp">
+            <ProgressBar
+                android:layout_width="40dp"
+                android:layout_height="40dp"
+                android:id="@+id/progressBarSend"
+                android:visibility="gone"
+                android:padding="10dp"
+                android:layout_centerInParent="true"/>
+
+                <ImageButton
+                    android:id="@+id/btn_send"
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:alpha="0.5"
+                    android:padding="10dp"
+                    android:background="@android:drawable/ic_menu_send" />/>
+            </RelativeLayout>
+    </LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

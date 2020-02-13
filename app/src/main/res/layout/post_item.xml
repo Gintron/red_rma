@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto">
@@ -23,19 +24,29 @@
             android:orientation="horizontal">
 
             <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/image_profile"
                 android:layout_width="40dp"
                 android:layout_height="40dp"
-                android:id="@+id/image_profile"
-                android:layout_margin="10dp"/>
+                android:layout_margin="10dp" />
 
             <TextView
+                android:id="@+id/username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:id="@+id/username"
                 android:layout_gravity="center_vertical"
+                android:textColor="@color/colorPrimaryDark"
                 android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/publisher"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:textColor="@color/colorPrimaryDark"
                 android:textStyle="bold"
-                android:textColor="@color/colorPrimaryDark"/>
+                tools:text="@string/app_name"
+                tools:visibility="invisible" />
 
         </LinearLayout>
 
@@ -44,73 +55,117 @@
             android:layout_height="wrap_content">
 
             <ImageView
-                android:layout_width="match_parent"
-                android:layout_height="0dp"
                 android:id="@+id/post_image"
-                app:layout_constraintDimensionRatio="1:1"/>
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:srcCompat="@drawable/placeholder" />
 
         </android.support.constraint.ConstraintLayout>
 
-        <RelativeLayout
+        <android.support.constraint.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:padding="8dp">
+            android:layout_height="match_parent"
+            android:paddingBottom="15dp">
+
+            <TextView
+                android:id="@+id/description"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="6dp"
+                android:text="Neki naziv dogadaja"
+                android:textColor="@color/colorPrimaryDark"
+                android:textSize="21sp"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:id="@+id/like"
-                android:src="@drawable/ic_like"/>
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:id="@+id/comment"
-                android:src="@drawable/ic_comment"
-                android:layout_toEndOf="@id/like"
-                android:layout_marginStart="10dp"/>
-
-            <ImageView
-                android:layout_width="30dp"
-                android:layout_height="30dp"
                 android:id="@+id/save"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginEnd="8dp"
                 android:src="@drawable/ic_savee_black"
-                android:layout_alignParentEnd="true"/>
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        </RelativeLayout>
+            <ImageView
+                android:id="@+id/imageView"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="8dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/description"
+                app:layout_constraintVertical_bias="0.179"
+                app:srcCompat="@drawable/date" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            android:id="@+id/likes"/>
+            <TextView
+                android:id="@+id/date1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="18dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/imageView"
+                app:layout_constraintTop_toBottomOf="@+id/description" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:textStyle="bold"
-            android:id="@+id/publisher"/>
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="36dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toEndOf="@+id/date1"
+                app:layout_constraintTop_toBottomOf="@+id/description"
+                app:srcCompat="@drawable/time" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="8dp"
-            android:textColor="@color/colorPrimaryDark"
-            android:id="@+id/description"/>
+            <TextView
+                android:id="@+id/time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="12dp"
+                android:layout_marginTop="18dp"
+                android:text="TextView"
+                app:layout_constraintStart_toEndOf="@+id/imageView2"
+                app:layout_constraintTop_toBottomOf="@+id/description" />
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="View All 20 Comments"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="5dp"
-            android:textColor="@color/colorAccent"
-            android:id="@+id/comments"
-            android:layout_marginBottom="10dp"/>
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_marginStart="8dp"
+                android:layout_marginTop="12dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/imageView"
+                app:srcCompat="@drawable/map" />
+
+            <TextView
+                android:id="@+id/location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:layout_marginBottom="8dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/imageView3" />
+
+            <TextView
+                android:id="@+id/show_city"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginBottom="8dp"
+                android:text="TextView"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toEndOf="@+id/location" />
+        </android.support.constraint.ConstraintLayout>
 
     </LinearLayout>
 
