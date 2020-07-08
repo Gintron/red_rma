@@ -1,12 +1,19 @@
-# InstagramApp
+# Red
 
-<br><b>I have deleted google-services.json. Add yours</b>
+Red helps you find content you are looking for.
 
-<br>Implementation Guide 
-<br>1 - Project
-<br>1 - Open the Project in your android studio;
-<br>2 - *IMPORTANT* Change the Package Name. (https://stackoverflow.com/questions/16804093/android-studio-rename-package)
+Browse trough content you are in the mood to watch like: fun, animals, sport, travel, news etc.
 
-<br>2 - Firebase Panel
-<br>1 - Create Firebase Project (https://console.firebase.google.com/);
-<br>2 - import the file google-service.json into your project
+Enjoy in your categorized news feed.
+
+Connet and share photos, video* and articles with your friends.
+
+Share your knowledge, passion, interests, funny moments with the whole world.
+
+Watch images, videos* or read articles.
+
+Capture your interesting daily moments with stories.
+Share stories with followers, comment stories.
+Stories are visible only for 24 hours.
+
+**Video is not yet supported
