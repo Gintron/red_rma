@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+    <item android:id="@+id/sport"
+        android:title="Sport" />
+    <item android:id="@+id/travel"
+        android:title="Travel" />
+    <item android:id="@+id/movies"
+        android:title="Movies" />
+    <item android:id="@+id/fun"
+        android:title="Fun" />
+    <item android:id="@+id/lifestyle"
+        android:title="Lifestyle" />
+    <item android:id="@+id/games"
+        android:title="Games" />
+    <item android:id="@+id/cars"
+        android:title="Cars" />
+    <item android:id="@+id/food"
+        android:title="Food" />
+    <item android:id="@+id/music"
+        android:title="Music" />
+
+</group>
+</menu>
