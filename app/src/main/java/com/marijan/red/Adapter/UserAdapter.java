@@ -2,10 +2,11 @@ package com.marijan.red.Adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.RecyclerView;
+
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -25,10 +26,10 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
+import com.marijan.red.Fragments.UserFragmentPost;
+import com.marijan.red.Profile;
 import com.marijan.red.Persitance;
 import com.marijan.red.Fragments.APIService;
-import com.marijan.red.Fragments.ProfileFragment;
-import com.marijan.red.MainActivity;
 import com.marijan.red.Model.User;
 import com.marijan.red.Notifications.Client;
 import com.marijan.red.Notifications.Data;
@@ -36,6 +37,7 @@ import com.marijan.red.Notifications.MyResponse;
 import com.marijan.red.Notifications.Sender;
 import com.marijan.red.Notifications.Token;
 import com.marijan.red.R;
+import com.marijan.red.StoryCommentActivity;
 
 import java.util.HashMap;
 import java.util.List;
@@ -45,8 +47,6 @@ import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
-import static android.content.Context.MODE_PRIVATE;
-
 public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ImageViewHolder> {
 
     private Context mContext;
@@ -54,7 +54,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ImageViewHolde
     private boolean isFragment;
 
     private FirebaseUser firebaseUser;
-    String MESSAGE_KEY;
+    String MESSAGE_KEY = "Started to follow you!";
     APIService apiService;
 
     private String typeString;
@@ -75,17 +75,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ImageViewHolde
     public void onBindViewHolder(@NonNull final UserAdapter.ImageViewHolder holder, final int position) {
 
         firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-        apiService = Client.getClient("https://fcm.googleapis.com/").create(APIService.class);
+
         final User user = mUsers.get(position);
 
         holder.btn_follow.setVisibility(View.VISIBLE);
-        if(user.getType().equals("Private")){
-            isFollowing(user.getId(), holder.btn_follow);
-        }else {
-            isWatching(user.getId(), holder.btn_follow);
-        }
-
-
+        isFollowing(user.getId(), holder.btn_follow);
 
         holder.username.setText(user.getUsername());
         holder.fullname.setText(user.getFullname());
@@ -98,21 +92,11 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ImageViewHolde
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if (isFragment) {
-                    SharedPreferences.Editor editor = mContext.getSharedPreferences("PREFS", MODE_PRIVATE).edit();
-                    editor.putString("profileid", user.getId());
-                    editor.apply();
 
-                    ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new ProfileFragment()).commit();
-                    //Intent intent = new Intent(mContext, MessageActivity.class);
-                    //intent.putExtra("userid", user.getId());
-                    //mContext.startActivity(intent);
-                } else {
-                    Intent intent = new Intent(mContext,MainActivity.class);
-                    intent.putExtra("publisherid", user.getId());
-                    mContext.startActivity(intent);
-                }
+
+                Intent intent = new Intent(mContext, Profile.class);
+                intent.putExtra("idProfile", user.getId());
+                mContext.startActivity(intent);
             }
         });
 
@@ -124,35 +108,13 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ImageViewHolde
                             .child("following").child(user.getId()).setValue(true);
                     FirebaseDatabase.getInstance().getReference().child("Follow").child(user.getId())
                             .child("followers").child(firebaseUser.getUid()).setValue(true);
-                    typeString = "following";
+                    sendNotifiaction(user.getId(), Persitance.currentUserName);
                     addNotification(user.getId());
-                    MESSAGE_KEY = user.getId()+firebaseUser.getUid();
-                    String receiver = user.getId();
-                    String name = firebaseUser.getDisplayName();
-                    Intent intent = new Intent("custom-message");
-
-                    intent.putExtra("followNot","followNot");
-
-                    sendNotifiaction(receiver ,name);
-
-                } else if (holder.btn_follow.getText().toString().equals("following")){
+                } else {
                     FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
                             .child("following").child(user.getId()).removeValue();
                     FirebaseDatabase.getInstance().getReference().child("Follow").child(user.getId())
                             .child("followers").child(firebaseUser.getUid()).removeValue();
-                }
-                else if (holder.btn_follow.getText().toString().equals("watch")) {
-                    FirebaseDatabase.getInstance().getReference().child("Watch").child(firebaseUser.getUid())
-                            .child("watching").child(user.getId()).setValue(true);
-                    FirebaseDatabase.getInstance().getReference().child("Watch").child(user.getId())
-                            .child("watchers").child(firebaseUser.getUid()).setValue(true);
-                    typeString = "watching";
-                    addNotification(user.getId());
-                } else if (holder.btn_follow.getText().toString().equals("watching")){
-                    FirebaseDatabase.getInstance().getReference().child("Watch").child(firebaseUser.getUid())
-                            .child("watching").child(user.getId()).removeValue();
-                    FirebaseDatabase.getInstance().getReference().child("Watch").child(user.getId())
-                            .child("watchers").child(firebaseUser.getUid()).removeValue();
                 }
             }
 
@@ -164,7 +126,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ImageViewHolde
 
         HashMap<String, Object> hashMap = new HashMap<>();
         hashMap.put("userid", firebaseUser.getUid());
-        hashMap.put("text", "started " + typeString + " you");
+        hashMap.put("text", "started follow you");
         hashMap.put("postid", "");
         hashMap.put("ispost", false);
 
@@ -215,46 +177,26 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ImageViewHolde
             }
         });
     }
-    private void isWatching(final String userid, final Button button){
-
-        final FirebaseUser firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
-
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference()
-                .child("Watch").child(firebaseUser.getUid()).child("watching");
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                if (dataSnapshot.child(userid).exists()){
-                    button.setText("watching");
-                } else{
-                    button.setText("watch");
-                }
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-
-            }
-        });
-    }
 
     private void sendNotifiaction(final String receiver, final String username){
+        firebaseUser = FirebaseAuth.getInstance().getCurrentUser();
         DatabaseReference tokens = FirebaseDatabase.getInstance().getReference("Tokens");
-
         Query query = tokens.orderByKey().equalTo(receiver);
         query.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     Token token = snapshot.getValue(Token.class);
+                    String message = "Started to follow you!";
                     String type = "other";
-                    Data data = new Data(firebaseUser.getUid(),Persitance.currentUserName,Persitance.currentUserImage, R.mipmap.ic_launcher, username+": "+"started to follow you", "Notification",
-                            receiver,MESSAGE_KEY, type,"");
+
+                    Data data = new Data(firebaseUser.getUid(),Persitance.currentUserName,Persitance.currentUserImage, R.mipmap.ic_launcher, username+": "+message, "Follow",
+                            receiver,MESSAGE_KEY, type, "", Persitance.currentUserId);
 
 
                     Sender sender = new Sender(data, token.getToken());
-
-                    apiService.sendNotification (sender)
+                    apiService = Client.getClient("https://fcm.googleapis.com/").create(APIService.class);
+                    apiService.sendNotification(sender)
                             .enqueue(new Callback<MyResponse>() {
                                 @Override
                                 public void onResponse(Call<MyResponse> call, Response<MyResponse> response) {
@@ -267,6 +209,7 @@ public class UserAdapter extends RecyclerView.Adapter<UserAdapter.ImageViewHolde
 
                                 @Override
                                 public void onFailure(Call<MyResponse> call, Throwable t) {
+                                    Toast.makeText(mContext, "Could not send the message", Toast.LENGTH_SHORT).show();
                                 }
                             });
                 }

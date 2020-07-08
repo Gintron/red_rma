@@ -2,25 +2,20 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
 
+
     <item
         android:id="@+id/nav_home"
         android:icon="@drawable/ic_home"
         android:title=""/>
 
     <item
-        android:id="@+id/messages__icon"
-        android:icon="@drawable/ic_inbox"
-        android:title="" />
-
-    <item
         android:id="@+id/nav_add"
-        android:icon="@drawable/ic_add"
+        android:icon="@drawable/ic_search_nav"
         android:title=""/>
-
     <item
-        android:id="@+id/nav_heart"
-        android:icon="@drawable/ic_heart"
-        android:title=""/>
+        android:id="@+id/nav_bell"
+        android:icon="@drawable/ic_bell"
+        android:title="" />
 
     <item
         android:id="@+id/nav_profile"

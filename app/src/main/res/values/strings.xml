@@ -3,8 +3,10 @@
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="publicuser">Public</string>
-    <string name="privateuser">Private</string>
+
+    <string name="publicpost">Public, all people from around \n the world can see this post</string>
+    <string name="privatepost">Private, only people who follow \n you can see this post </string>
+
     <string name="personText">Are you a public or private person?</string>
     <string name="followingText">Following</string>
     <string name="watchingText">Watching</string>
@@ -16,13 +18,30 @@
     <string name="articleContent">Article content</string>
     <string name="publish">Publish</string>
     <string name="description">Description</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
     <string-array name="category">
-        <item>Sport</item>
+        <item>Fun</item>
+        <item>Fashion</item>
         <item>Animals</item>
+        <item>Sport</item>
+        <item>Games</item>
+        <item>Cars</item>
         <item>Movies</item>
+        <item>News</item>
+        <item>Food</item>
         <item>Technology</item>
+        <item>Business</item>
+        <item>Health</item>
+        <item>Science</item>
+        <item>Art</item>
         <item>Travel</item>
     </string-array>
+    <string name="email_verification_text">We have sent you a \n verification email</string>
+    <string name="start_login_text">You already have \nan account?</string>
+    <string name="start_register_text">This is your first \ntime here?</string>
+    <string name="sign_in_with">Sign in with Google</string>
 
-
+    <string name="register_with_google">Register with Google account</string>
+    <string name="register_with_email">Register with other email</string>
 </resources>

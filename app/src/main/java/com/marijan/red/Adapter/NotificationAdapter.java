@@ -3,9 +3,9 @@ package com.marijan.red.Adapter;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.support.annotation.NonNull;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,17 +20,11 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.marijan.red.Fragments.PostDetailFragment;
 import com.marijan.red.Fragments.ProfileFragment;
-import com.marijan.red.LoginActivity;
 import com.marijan.red.Model.Notification;
-import com.marijan.red.Model.Post;
-import com.marijan.red.Model.Story;
 import com.marijan.red.Model.User;
+import com.marijan.red.Profile;
 import com.marijan.red.R;
-import com.marijan.red.RegisterActivity;
-import com.marijan.red.StartActivity;
-import com.marijan.red.StoryActivity;
 import com.marijan.red.StoryCommentActivity;
 
 import java.util.List;
@@ -80,16 +74,16 @@ public class NotificationAdapter extends RecyclerView.Adapter<NotificationAdapte
                     editor.apply();
 
                    //Intent intent = new Intent(mContext, StoryCommentActivity.class);
-                    //Intent intent = new Intent(mContext, StoryCommentActivity.class);
 
                    // mContext.startActivity(intent);
                 } else {
-                    SharedPreferences.Editor editor = mContext.getSharedPreferences("PREFS", MODE_PRIVATE).edit();
-                    editor.putString("profileid", notification.getUserid());
-                    editor.apply();
-
-                    ((FragmentActivity)mContext).getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                            new ProfileFragment()).commit();
+                    /*SharedPreferences.Editor editor = mContext.getSharedPreferences("PREFS", MODE_PRIVATE).edit();
+                    editor.putString("idProfile", notification.getUserid());
+                    editor.apply();*/
+                    String uid = notification.getUserid();
+                    Intent intent = new Intent(mContext, Profile.class);
+                    intent.putExtra("idProfile", uid);
+                    mContext.startActivity(intent);
                 }
             }
         });

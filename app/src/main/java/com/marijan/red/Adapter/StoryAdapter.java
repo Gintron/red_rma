@@ -4,8 +4,11 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
-import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
+import androidx.annotation.NonNull;
+import androidx.recyclerview.widget.RecyclerView;
+
+import android.graphics.Color;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -62,7 +65,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
         }
 
         if (viewHolder.getAdapterPosition() == 0){
-            myStory(viewHolder.addstory_text, viewHolder.story_plus, false);
+            myStory(viewHolder.addstory_text, viewHolder.story_photo, false);
         }
 
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
@@ -87,18 +90,17 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        public ImageView story_photo, story_plus, story_photo_seen;
-        public TextView  addstory_text;
+        public ImageView story_photo/*, story_plus, story_photo_seen*/;
+        public TextView story_username, addstory_text;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             story_photo = itemView.findViewById(R.id.story_photo);
-
-            story_plus = itemView.findViewById(R.id.story_plus);
+            story_username = itemView.findViewById(R.id.story_username);
+            //story_plus = itemView.findViewById(R.id.story_plus);
             addstory_text = itemView.findViewById(R.id.addstory_text);
-
-            story_photo_seen = itemView.findViewById(R.id.story_photo_seen);
+            //story_photo_seen = itemView.findViewById(R.id.story_photo_seen);
         }
     }
 
@@ -116,11 +118,10 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 User user = dataSnapshot.getValue(User.class);
-                Glide.with(mContext).load(user.getImageurl()).apply(RequestOptions.bitmapTransform(new RoundedCorners(20))).into(viewHolder.story_photo);
-
+                Glide.with(mContext).load(user.getImageurl()).into(viewHolder.story_photo);
                 if (pos != 0) {
-                    Glide.with(mContext).load(user.getImageurl()).load(user.getImageurl()).apply(RequestOptions.bitmapTransform(new RoundedCorners(90))).into(viewHolder.story_photo_seen);
-
+                    Glide.with(mContext).load(user.getImageurl()).into(viewHolder.story_photo);
+                    viewHolder.story_username.setText(user.getUsername());
                 }
             }
 
@@ -148,17 +149,20 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
 
                 if (click) {
                     if (count > 0) {
-                        AlertDialog alertDialog = new AlertDialog.Builder(mContext).create();
+                        AlertDialog alertDialog = new AlertDialog.Builder(mContext,R.style.yourDialog).create();
+
                         alertDialog.setButton(AlertDialog.BUTTON_NEUTRAL, "View Story",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
                                         //TODO: go to story
+
                                         Intent intent = new Intent(mContext, StoryActivity.class);
                                         intent.putExtra("userid", FirebaseAuth.getInstance().getCurrentUser().getUid());
                                         mContext.startActivity(intent);
                                         dialog.dismiss();
                                     }
                                 });
+
                         alertDialog.setButton(AlertDialog.BUTTON_POSITIVE, "Add Story",
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int which) {
@@ -175,7 +179,7 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
                 } else {
                     if (count > 0){
                         textView.setText("My story");
-                        imageView.setVisibility(View.GONE);
+                        //imageView.setVisibility(View.GONE);
                     } else {
                         textView.setText("Add story");
                         imageView.setVisibility(View.VISIBLE);
@@ -205,13 +209,13 @@ public class StoryAdapter extends RecyclerView.Adapter<StoryAdapter.ViewHolder>{
                     }
                 }
 
-                if ( i > 0){
+               /* if ( i > 0){
                     viewHolder.story_photo.setVisibility(View.VISIBLE);
                     viewHolder.story_photo_seen.setVisibility(View.GONE);
                 } else {
                     viewHolder.story_photo.setVisibility(View.GONE);
                     viewHolder.story_photo_seen.setVisibility(View.VISIBLE);
-                }
+                }*/
             }
 
             @Override

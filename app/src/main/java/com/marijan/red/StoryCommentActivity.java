@@ -2,11 +2,11 @@ package com.marijan.red;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.appcompat.widget.Toolbar;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -63,7 +63,7 @@ public class StoryCommentActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_comments);
+        setContentView(R.layout.activity_story_comment);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -155,7 +155,7 @@ public class StoryCommentActivity extends AppCompatActivity {
                     String type = "StoryComment";
 
                     Data data = new Data(firebaseUser.getUid(),Persitance.currentUserName,Persitance.currentUserImage, R.mipmap.ic_launcher, username+": "+message, "Story",
-                            receiver,MESSAGE_KEY, type, postid);
+                            receiver,MESSAGE_KEY, type, postid, Persitance.currentUserId);
 
 
                     Sender sender = new Sender(data, token.getToken());

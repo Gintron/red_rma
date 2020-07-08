@@ -7,7 +7,8 @@
     android:orientation="vertical"
     tools:context=".OptionsActivity">
 
-    <android.support.v7.widget.Toolbar
+
+    <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -22,6 +23,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Settings"
+        android:fontFamily="@font/rubik"
         android:textColor="@color/colorPrimaryDark"
         android:layout_margin="8dp"
         android:textSize="18sp"/>
@@ -35,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Log Out"
+        android:fontFamily="@font/rubik"
         android:id="@+id/logout"
         android:textColor="@color/colorPrimaryDark"
         android:layout_margin="8dp"

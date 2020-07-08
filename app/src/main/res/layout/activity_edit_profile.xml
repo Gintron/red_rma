@@ -7,13 +7,13 @@
     android:layout_height="match_parent"
     tools:context=".EditProfileActivity">
 
-    <android.support.design.widget.AppBarLayout
+    <com.google.android.material.appbar.AppBarLayout
         android:id="@+id/bar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="?android:attr/windowBackground">
 
-        <android.support.v7.widget.Toolbar
+        <androidx.appcompat.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,6 +36,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="Edit Profile"
+                    android:fontFamily="@font/rubik"
                     android:layout_centerVertical="true"
                     android:layout_marginStart="10dp"
                     android:textStyle="bold"
@@ -48,18 +49,19 @@
                     android:layout_height="wrap_content"
                     android:layout_marginRight="10dp"
                     android:text="SAVE"
+                    android:fontFamily="@font/rubik"
                     android:id="@+id/save"
                     android:textSize="16sp"
                     android:layout_centerVertical="true"
-                    android:textColor="@color/colorPrimary"
+                    android:textColor="#F20530"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentEnd="true" />
 
             </RelativeLayout>
 
 
-        </android.support.v7.widget.Toolbar>
-    </android.support.design.widget.AppBarLayout>
+        </androidx.appcompat.widget.Toolbar>
+    </com.google.android.material.appbar.AppBarLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,9 +69,9 @@
         android:padding="8dp"
         android:orientation="vertical">
 
-        <de.hdodenhof.circleimageview.CircleImageView
+        <ImageView
             android:layout_width="80dp"
-            android:layout_height="80dp"
+            android:layout_height="142.22dp"
             android:src="@mipmap/ic_launcher"
             android:layout_gravity="center"
             android:id="@+id/image_profile"
@@ -79,9 +81,10 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Change Photo"
+            android:fontFamily="@font/rubik"
             android:layout_gravity="center"
             android:id="@+id/tv_change"
-            android:textColor="@color/colorPrimary"
+            android:textColor="#F20530"
             android:textSize="16sp"/>
 
         <com.rengwuxian.materialedittext.MaterialEditText
@@ -89,6 +92,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="20dp"
             android:hint="Full Name"
+            android:fontFamily="@font/rubik"
             android:id="@+id/fullname"
             app:met_floatingLabel="normal"/>
 
@@ -96,6 +100,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Username"
+            android:fontFamily="@font/rubik"
             android:id="@+id/username"
             app:met_floatingLabel="normal"/>
 
@@ -103,6 +108,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:hint="Bio"
+            android:fontFamily="@font/rubik"
             android:id="@+id/bio"
             app:met_floatingLabel="normal"/>
 

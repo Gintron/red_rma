@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.view.View;
 import android.webkit.MimeTypeMap;
 import android.widget.ImageView;
@@ -35,7 +35,6 @@ import com.google.firebase.storage.UploadTask;
 import com.marijan.red.Model.User;
 import com.rengwuxian.materialedittext.MaterialEditText;
 import com.theartofdev.edmodo.cropper.CropImage;
-import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -108,7 +107,7 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 CropImage.activity()
-                        .setAspectRatio(9,16)
+                        .setAspectRatio(1,1)
                         .start(EditProfileActivity.this);
             }
         });
@@ -117,7 +116,7 @@ public class EditProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 CropImage.activity()
-                        .setAspectRatio(9,16)
+                        .setAspectRatio(1,1)
                         .start(EditProfileActivity.this);
             }
         });
@@ -143,9 +142,7 @@ public class EditProfileActivity extends AppCompatActivity {
         return mime.getExtensionFromMimeType(cR.getType(uri));
     }
 
-    private void uploadImage(){
 
-    }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -211,11 +208,11 @@ public class EditProfileActivity extends AppCompatActivity {
                 }
             } catch (Exception e) {
 
-                }
-
-            } else {
-                Toast.makeText(this, "Something gone wrong!", Toast.LENGTH_SHORT).show();
             }
+
+        } else {
+            Toast.makeText(this, "Something gone wrong!", Toast.LENGTH_SHORT).show();
+        }
 
     }
 

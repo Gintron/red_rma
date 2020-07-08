@@ -6,8 +6,8 @@ import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.v7.app.AppCompatActivity;
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
 import android.webkit.MimeTypeMap;
 import android.widget.Toast;
 
@@ -74,7 +74,7 @@ public class AddStoryActivity extends AppCompatActivity {
             try{
                 Bitmap compressedImage = new Compressor (this)
                         .setQuality(50)
-                .compressToBitmap(actualImage);
+                        .compressToBitmap(actualImage);
                 ByteArrayOutputStream baos = new ByteArrayOutputStream();
                 compressedImage.compress(Bitmap.CompressFormat.JPEG, 50, baos);
                 byte[] finalImage = baos.toByteArray();

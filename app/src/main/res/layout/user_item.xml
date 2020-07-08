@@ -28,6 +28,7 @@ android:layout_height="wrap_content">
         android:id="@+id/username"
         android:textSize="18sp"
         android:maxLines="1"
+        android:fontFamily="@font/rubik"
         android:textStyle="bold"
         android:textColor="@color/colorPrimaryDark"/>
 
@@ -35,6 +36,7 @@ android:layout_height="wrap_content">
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/fullname"
+        android:fontFamily="@font/rubik"
         android:maxLines="1"
         android:text="Full Name"/>
 
@@ -46,6 +48,7 @@ android:layout_height="wrap_content">
     android:background="@drawable/button_background"
     android:visibility="gone"
     android:id="@+id/btn_follow"
+    android:fontFamily="@font/rubik"
     android:textColor="#F20530"
     android:layout_alignParentEnd="true"
     android:layout_alignParentRight="true"
