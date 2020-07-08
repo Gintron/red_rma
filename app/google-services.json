@@ -10,7 +10,7 @@
       "client_info": {
         "mobilesdk_app_id": "1:295321716221:android:509cd9358308bf9f",
         "android_client_info": {
-          "package_name": "com.koddev.instagramtest"
+          "package_name": "com.marijan.red"
         }
       },
       "oauth_client": [
@@ -18,7 +18,7 @@
           "client_id": "295321716221-jr247pnb8oudt8o3n1v3ok05ccvgfkcc.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.koddev.instagramtest",
+            "package_name": "com.marijan.red",
             "certificate_hash": "805616e6a9d8df81453a1528e00a8058c7738eab"
           }
         },
