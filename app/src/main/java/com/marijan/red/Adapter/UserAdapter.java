@@ -6,7 +6,6 @@ import android.content.Intent;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -26,7 +25,6 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
-import com.marijan.red.Fragments.UserFragmentPost;
 import com.marijan.red.Profile;
 import com.marijan.red.Persitance;
 import com.marijan.red.Fragments.APIService;
@@ -37,7 +35,6 @@ import com.marijan.red.Notifications.MyResponse;
 import com.marijan.red.Notifications.Sender;
 import com.marijan.red.Notifications.Token;
 import com.marijan.red.R;
-import com.marijan.red.StoryCommentActivity;
 
 import java.util.HashMap;
 import java.util.List;

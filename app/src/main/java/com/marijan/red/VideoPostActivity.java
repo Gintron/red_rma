@@ -16,7 +16,7 @@ import com.google.android.exoplayer2.upstream.DataSource;
 import com.google.android.exoplayer2.upstream.DefaultDataSourceFactory;
 import com.google.android.exoplayer2.util.Util;
 
-
+/* OTVORI VIDEO POST */
 public class VideoPostActivity extends AppCompatActivity {
 
     private SimpleExoPlayer player;

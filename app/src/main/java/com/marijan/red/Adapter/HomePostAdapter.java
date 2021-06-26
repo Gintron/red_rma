@@ -54,7 +54,6 @@ public class HomePostAdapter extends RecyclerView.Adapter<HomePostAdapter.ViewHo
             viewHolder.title.setText(mPost.get(i).getTitle());
             viewHolder.publisher.setText(mPost.get(i).getPublisher());
         }catch (Exception e){
-
         }
         viewHolder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -70,9 +69,6 @@ public class HomePostAdapter extends RecyclerView.Adapter<HomePostAdapter.ViewHo
                 }
             }
         });
-    }
-    public String getLastItemID(){
-        return mPost.get(mPost.size()-1).getPostid();
     }
     @Override
     public int getItemCount() {

@@ -34,7 +34,7 @@
             android:paddingRight="3dp"
             android:paddingBottom="3dp"
             android:text="text"
-            android:textColor="@color/red"
+            android:textColor="@color/colorBlack"
             android:textAlignment="center"
             app:layout_constraintEnd_toEndOf="@+id/explore_category_icon"
             app:layout_constraintStart_toStartOf="parent"

@@ -60,7 +60,10 @@
         android:layout_marginEnd="24dp"
         android:layout_marginBottom="24dp"
         android:background="@drawable/background_login_button"
-        android:text="Button"
+        android:paddingStart="8dp"
+        android:paddingEnd="8dp"
+        android:text="Create Account"
+        android:textColor="@color/red"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -20,7 +20,7 @@ import com.marijan.red.Model.HomePost;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/* IZLISTAVA POSTOVE PO KATEGORIJI  */
 public class CategoryPostActivity extends AppCompatActivity {
     private List<HomePost> postList;
     private HomePostAdapter homePostAdapter;
@@ -71,7 +71,7 @@ public class CategoryPostActivity extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
-                //followingList.clear();
+
                 for (DataSnapshot snapshot : dataSnapshot.getChildren()){
                     if(!followingList.contains(snapshot.getKey()))
                     followingList.add(snapshot.getKey());

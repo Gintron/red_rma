@@ -158,7 +158,6 @@ public class ProfileFragment extends Fragment {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getChildFragmentManager());
 
         viewPagerAdapter.addFragment(new MyPostsFragment(), "Posts");
-        viewPagerAdapter.addFragment(new MyStoriessFragment(), "Story");
 
         viewPager.setAdapter(viewPagerAdapter);
 }

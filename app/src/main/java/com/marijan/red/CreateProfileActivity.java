@@ -27,7 +27,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
 import java.util.HashMap;
-
+/* KREIRAJ PROFILE */
 public class CreateProfileActivity extends AppCompatActivity {
 
     EditText userName, fullName;

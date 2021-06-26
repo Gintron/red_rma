@@ -1,7 +1,5 @@
 package com.marijan.red.Notifications;
 
-import com.marijan.red.StoryCommentActivity;
-
 public class Sender {
     public Data data;
 

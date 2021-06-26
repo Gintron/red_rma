@@ -23,13 +23,8 @@
             android:parentActivityName=".MainActivity" />
         <activity android:name=".CreateMediaActivity" />
         <activity android:name=".HomePostActivity" />
-        <activity android:name=".CreateArticleActivity" />
-        <activity
-            android:name=".TypeOfPostActivity"
-            android:parentActivityName=".MainActivity" />
         <activity android:name=".Profile" />
         <activity android:name=".ForgotPasswordActivity" />
-        <activity android:name=".StoryCommentActivity" />
         <activity android:name=".StartActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -46,9 +41,6 @@
         <activity android:name=".OptionsActivity" />
         <activity android:name=".EditProfileActivity" />
         <activity android:name=".FollowersActivity" />
-        <activity android:name=".StoryActivity" />
-        <activity android:name=".AddStoryActivity" />
-        <activity android:name=".SearchActivity" />
         <activity android:name=".CreateProfileActivity" />
         <service
             android:name=".Notifications.MyFirebaseIdService"

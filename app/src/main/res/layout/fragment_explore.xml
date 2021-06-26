@@ -50,7 +50,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Fun"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorBlack"
                             app:layout_constraintEnd_toEndOf="@+id/fun_img"
                             app:layout_constraintHorizontal_bias="0.4153"
                             app:layout_constraintStart_toStartOf="parent"
@@ -77,7 +77,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Fashion"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorBlack"
                             app:layout_constraintEnd_toEndOf="@+id/fashion_img"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/fashion_img" />
@@ -102,7 +102,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Animals"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorBlack"
                             app:layout_constraintEnd_toEndOf="@+id/animals_img"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/animals_img" />
@@ -127,7 +127,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="Sport"
-                        android:textColor="@color/red"
+                        android:textColor="@color/colorBlack"
                         app:layout_constraintEnd_toEndOf="@+id/sport_img"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/sport_img" />
@@ -152,7 +152,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Games"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorBlack"
                             app:layout_constraintEnd_toEndOf="@+id/games_img"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/games_img" />
@@ -177,7 +177,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Cars"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorBlack"
                             app:layout_constraintEnd_toEndOf="@+id/cars_img"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/cars_img" />
@@ -202,7 +202,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Movies"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorBlack"
                             app:layout_constraintEnd_toEndOf="@+id/movies_img"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/movies_img" />
@@ -227,7 +227,7 @@
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:text="News"
-                        android:textColor="@color/red"
+                        android:textColor="@color/colorBlack"
                         app:layout_constraintEnd_toEndOf="@+id/news_img"
                         app:layout_constraintStart_toStartOf="parent"
                         app:layout_constraintTop_toBottomOf="@+id/news_img" />
@@ -252,7 +252,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Food"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorBlack"
                             app:layout_constraintEnd_toEndOf="@+id/food_img"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/food_img" />
@@ -277,7 +277,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Tech"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorBlack"
                             app:layout_constraintEnd_toEndOf="@+id/tech_img"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/tech_img" />
@@ -302,7 +302,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Business"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorBlack"
                             app:layout_constraintEnd_toEndOf="@+id/business_img"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/business_img" />
@@ -327,7 +327,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Health"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorBlack"
                             app:layout_constraintEnd_toEndOf="@+id/health_img"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/health_img" />
@@ -352,7 +352,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Science"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorBlack"
                             app:layout_constraintEnd_toEndOf="@+id/science_img"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/science_img" />
@@ -377,7 +377,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Art"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorBlack"
                             app:layout_constraintEnd_toEndOf="@+id/art_img"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/art_img" />
@@ -402,7 +402,7 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:text="Travel"
-                            android:textColor="@color/red"
+                            android:textColor="@color/colorBlack"
                             app:layout_constraintEnd_toEndOf="@+id/travel_img"
                             app:layout_constraintStart_toStartOf="parent"
                             app:layout_constraintTop_toBottomOf="@+id/travel_img" />

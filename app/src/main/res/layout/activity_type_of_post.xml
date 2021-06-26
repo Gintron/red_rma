@@ -19,19 +19,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/article_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="280dp"
-        android:fontFamily="@font/rubik"
-        android:background="@drawable/button_white_background"
-        android:textStyle="bold"
-        android:text="@string/article"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7" />
-
-    <Button
         android:id="@+id/media_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -53,6 +40,7 @@
         android:layout_marginTop="16dp"
         android:scaleType="fitStart"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView7"
         app:srcCompat="@drawable/blur" />

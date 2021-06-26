@@ -92,15 +92,7 @@
         android:textSize="16sp"
         app:layout_constraintStart_toEndOf="@+id/profile_post"
         app:layout_constraintTop_toTopOf="parent" />
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:layout_constraintStart_toEndOf="@+id/profile_post"
-        app:layout_constraintTop_toBottomOf="@id/name_home_post"
-        android:text="1-1-2020"
-        android:layout_marginStart="8dp"
-        android:fontFamily="@font/rubik"
-        />
+
     <TextView
         android:id="@+id/follow_home_post"
         android:layout_width="wrap_content"

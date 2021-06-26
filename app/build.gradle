@@ -5,9 +5,9 @@ android {
     defaultConfig {
         applicationId "com.marijan.red"
         minSdkVersion 19
-        targetSdkVersion 28
-        versionCode 32
-        versionName "1.0.4.0"
+        targetSdkVersion 30
+        versionCode 34
+        versionName "1.0.4.2"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         multiDexEnabled true
     }

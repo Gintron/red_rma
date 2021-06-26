@@ -63,7 +63,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
 
-
+/*KREIRAJ POST*/
 
 public class CreateMediaActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
 
@@ -189,12 +189,12 @@ public class CreateMediaActivity extends AppCompatActivity implements AdapterVie
     private void uploadImage_10(){
         final ProgressDialog pd = new ProgressDialog(this);
         pd.setMessage("Posting");
-        pd.show();
+
 
         try{
 
             if(videoUri != null){
-
+                pd.show();
                 final StorageReference reference = storageReference.child(System.currentTimeMillis()
                         + "." + getFileExtension(videoUri));
                 String destPath = this.getExternalFilesDir(null).getPath();
@@ -252,71 +252,74 @@ public class CreateMediaActivity extends AppCompatActivity implements AdapterVie
                     }
                 });
 
-            } else {
-                Toast.makeText(CreateMediaActivity.this, "No image selected", Toast.LENGTH_SHORT).show();
-            }
-            Bitmap actualImage1 = BitmapFactory.decodeStream(getContentResolver().openInputStream(mImageUri));
+            } else if(mImageUri != null){
+                pd.show();
+                Bitmap actualImage1 = BitmapFactory.decodeStream(getContentResolver().openInputStream(mImageUri));
 
-            ByteArrayOutputStream baos = new ByteArrayOutputStream();
-            actualImage1.compress(Bitmap.CompressFormat.JPEG, 30, baos);
-            byte[] finalImage = baos.toByteArray();
-            if (mImageUri != null){
-                final StorageReference fileReference = storageReference.child(System.currentTimeMillis()
-                        + "." + getFileExtension(mImageUri));
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                actualImage1.compress(Bitmap.CompressFormat.JPEG, 30, baos);
+                byte[] finalImage = baos.toByteArray();
+                if (mImageUri != null) {
+                    final StorageReference fileReference = storageReference.child(System.currentTimeMillis()
+                            + "." + getFileExtension(mImageUri));
 
-                uploadTask = fileReference.putBytes(finalImage);
-                uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
-                    @Override
-                    public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
-                        if (!task.isSuccessful()) {
-                            throw task.getException();
-                        }
-                        return fileReference.getDownloadUrl();
-                    }
-                }).addOnCompleteListener(new OnCompleteListener<Uri>() {
-                    @Override
-                    public void onComplete(@NonNull Task<Uri> task) {
-                        if (task.isSuccessful()) {
-                            Uri downloadUri = task.getResult();
-                            miUrlOk = downloadUri.toString();
-
-                            DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Posts");
-
-                            String articleid = reference.push().getKey();
-                            String myid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-                            HashMap<String, Object> hashMap = new HashMap<>();
-                            hashMap.put("postid", articleid);
-                            hashMap.put("postimage", miUrlOk);
-                            if(isPublic) {
-                                hashMap.put("category", selectedString);
-                            }else{
-                                hashMap.put("category", "Friends");
+                    uploadTask = fileReference.putBytes(finalImage);
+                    uploadTask.continueWithTask(new Continuation<UploadTask.TaskSnapshot, Task<Uri>>() {
+                        @Override
+                        public Task<Uri> then(@NonNull Task<UploadTask.TaskSnapshot> task) throws Exception {
+                            if (!task.isSuccessful()) {
+                                throw task.getException();
                             }
-                            hashMap.put("userid", myid);
-                            hashMap.put("title", description.getText().toString());
-                            hashMap.put("type", "image");
-                            hashMap.put("publisher", Persitance.currentUserName);
-                            hashMap.put("time", ServerValue.TIMESTAMP);
-                            reference.child(articleid).setValue(hashMap);
-
-                            pd.dismiss();
-
-
-                            finish();
-
-                        } else {
-                            Toast.makeText(CreateMediaActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                            return fileReference.getDownloadUrl();
                         }
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(CreateMediaActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
-                    }
-                });
+                    }).addOnCompleteListener(new OnCompleteListener<Uri>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Uri> task) {
+                            if (task.isSuccessful()) {
+                                Uri downloadUri = task.getResult();
+                                miUrlOk = downloadUri.toString();
 
-            } else {
-                Toast.makeText(CreateMediaActivity.this, "No image selected", Toast.LENGTH_SHORT).show();
+                                DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Posts");
+
+                                String articleid = reference.push().getKey();
+                                String myid = FirebaseAuth.getInstance().getCurrentUser().getUid();
+                                HashMap<String, Object> hashMap = new HashMap<>();
+                                hashMap.put("postid", articleid);
+                                hashMap.put("postimage", miUrlOk);
+                                if (isPublic) {
+                                    hashMap.put("category", selectedString);
+                                } else {
+                                    hashMap.put("category", "Friends");
+                                }
+                                hashMap.put("userid", myid);
+                                hashMap.put("title", description.getText().toString());
+                                hashMap.put("type", "image");
+                                hashMap.put("publisher", Persitance.currentUserName);
+                                hashMap.put("time", ServerValue.TIMESTAMP);
+                                reference.child(articleid).setValue(hashMap);
+
+                                pd.dismiss();
+
+
+                                finish();
+
+                            } else {
+                                Toast.makeText(CreateMediaActivity.this, "Failed", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(CreateMediaActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
+                        }
+                    });
+
+                }
+            }
+
+
+             else {
+                Toast.makeText(CreateMediaActivity.this, "No image or video selected", Toast.LENGTH_SHORT).show();
             }
         }catch (Exception e){
 

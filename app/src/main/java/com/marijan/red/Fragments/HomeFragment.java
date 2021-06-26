@@ -5,8 +5,6 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.fragment.app.Fragment;
-import androidx.recyclerview.widget.GridLayoutManager;
-import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.recyclerview.widget.StaggeredGridLayoutManager;
 
@@ -23,17 +21,13 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.marijan.red.Adapter.HomePostAdapter;
-import com.marijan.red.Adapter.StoryAdapter;
 import com.marijan.red.CategoryPostActivity;
-import com.marijan.red.MainActivity;
+import com.marijan.red.CreateMediaActivity;
 import com.marijan.red.Model.HomePost;
-import com.marijan.red.Model.Story;
 import com.marijan.red.R;
-import com.marijan.red.SearchActivity;
-import com.marijan.red.TypeOfPostActivity;
+
 
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -72,7 +66,7 @@ public class HomeFragment extends Fragment {
         addPost.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getContext(), TypeOfPostActivity.class);
+                Intent intent = new Intent(getContext(), CreateMediaActivity.class);
                 startActivity(intent);
             }
         });

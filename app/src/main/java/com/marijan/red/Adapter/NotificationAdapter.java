@@ -4,7 +4,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import androidx.annotation.NonNull;
-import androidx.fragment.app.FragmentActivity;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,12 +19,10 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
-import com.marijan.red.Fragments.ProfileFragment;
 import com.marijan.red.Model.Notification;
 import com.marijan.red.Model.User;
 import com.marijan.red.Profile;
 import com.marijan.red.R;
-import com.marijan.red.StoryCommentActivity;
 
 import java.util.List;
 

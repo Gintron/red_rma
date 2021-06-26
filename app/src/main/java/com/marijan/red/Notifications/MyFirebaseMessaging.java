@@ -16,9 +16,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
-import com.marijan.red.MainActivity;
 import com.marijan.red.Profile;
-import com.marijan.red.StoryCommentActivity;
 
 public class MyFirebaseMessaging extends FirebaseMessagingService {
 
@@ -87,32 +85,7 @@ public class MyFirebaseMessaging extends FirebaseMessagingService {
             oreoNotification.getManager().notify(i, builder.build());
 
         }
-        else if(type.equals("StoryComment")){
-            Intent intent = new Intent(this, StoryCommentActivity.class);
-            Bundle bundle = new Bundle();
-            bundle.putString("from", "notification");
-            bundle.putString("receiverId", userId);
-            bundle.putString("receiverName", userName);
-            bundle.putString("receiverImage", userImage);
-            bundle.putString("messageKey", messageKey);
-            bundle.putString("storyid", postid);
-            bundle.putString("id", user);
-            intent.putExtras(bundle);
-            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-            PendingIntent pendingIntent = PendingIntent.getActivity(this, j, intent, PendingIntent.FLAG_ONE_SHOT);
-            Uri defaultSound = RingtoneManager.getDefaultUri(RingtoneManager.TYPE_NOTIFICATION);
 
-            OreoNotification oreoNotification = new OreoNotification(this);
-            Notification.Builder builder = oreoNotification.getOreoNotification(title, body, pendingIntent,
-                    defaultSound, icon);
-
-            int i = 0;
-            if (j > 0){
-                i = j;
-            }
-
-            oreoNotification.getManager().notify(i, builder.build());
-        }
 
 
     }

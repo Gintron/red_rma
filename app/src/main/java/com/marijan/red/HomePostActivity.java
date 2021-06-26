@@ -24,7 +24,7 @@ import com.marijan.red.Model.HomePost;
 import com.marijan.red.Model.User;
 
 import java.util.HashMap;
-
+/* OTVORI POST KOJI SI KLIKNUO */
 public class HomePostActivity extends AppCompatActivity {
     ImageView image, mediaImage, userImage;
     TextView title, description, userName, followTxt;
@@ -68,7 +68,7 @@ public class HomePostActivity extends AppCompatActivity {
                     title.setText(homePost.getTitle());
                     description.setText(homePost.getText());
                 }
-                else if(homePost.getType().equals("media")) {
+                else if(homePost.getType().equals("media")|| (homePost.getType().equals("image")))  {
                     image.setVisibility(View.INVISIBLE);
                     title.setVisibility(View.INVISIBLE);
                     description.setVisibility(View.INVISIBLE);
@@ -121,39 +121,5 @@ public class HomePostActivity extends AppCompatActivity {
 
             }
         });
-    }
-    void followClick(){
-        followTxt.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (followTxt.getText().toString().equals("Follow")) {
-
-                    FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
-                            .child("following").child(userid).setValue(true);
-                    FirebaseDatabase.getInstance().getReference().child("Follow").child(userid)
-                            .child("followers").child(firebaseUser.getUid()).setValue(true);
-                    addNotification(userid);
-
-                } else if (followTxt.getText().toString().equals("Following")){
-                    FirebaseDatabase.getInstance().getReference().child("Follow").child(firebaseUser.getUid())
-                            .child("following").child(userid).removeValue();
-                    FirebaseDatabase.getInstance().getReference().child("Follow").child(userid)
-                            .child("followers").child(firebaseUser.getUid()).removeValue();
-
-                }
-            }
-        });
-
-    }
-    private void addNotification(String userid){
-        DatabaseReference reference = FirebaseDatabase.getInstance().getReference("Notifications").child(userid);
-
-        HashMap<String, Object> hashMap = new HashMap<>();
-        hashMap.put("userid", firebaseUser.getUid());
-        hashMap.put("text", "started following you");
-        hashMap.put("postid", "");
-        hashMap.put("ispost", false);
-
-        reference.push().setValue(hashMap);
     }
     }

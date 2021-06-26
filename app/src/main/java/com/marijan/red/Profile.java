@@ -3,7 +3,6 @@ package com.marijan.red;
 import android.content.Intent;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import androidx.appcompat.widget.Toolbar;
@@ -29,7 +28,6 @@ import com.google.firebase.database.Query;
 import com.google.firebase.database.ValueEventListener;
 import com.marijan.red.Adapter.ViewPagerAdapter;
 import com.marijan.red.Fragments.APIService;
-import com.marijan.red.Fragments.MyStoriessFragment;
 import com.marijan.red.Fragments.UserFragmentPost;
 import com.marijan.red.Model.User;
 import com.marijan.red.Notifications.Client;
@@ -137,7 +135,6 @@ public class Profile extends AppCompatActivity {
         ViewPagerAdapter viewPagerAdapter = new ViewPagerAdapter(getSupportFragmentManager());
 
         viewPagerAdapter.addFragment(new UserFragmentPost(), "Posts");
-        viewPagerAdapter.addFragment(new MyStoriessFragment(), "Story");
 
         viewPager.setAdapter(viewPagerAdapter);
     }
