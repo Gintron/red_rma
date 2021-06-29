@@ -28,11 +28,7 @@ public class HomePostAdapter extends RecyclerView.Adapter<HomePostAdapter.ViewHo
         this.mContext = mContext;
         this.mPost = mPost;
     }
-    public void addAll(List<HomePost> posts){
-        int initSize= mPost.size();
-        mPost.addAll(posts);
-        notifyItemRangeChanged(initSize, posts.size());
-    }
+
     @NonNull
     @Override
     public HomePostAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup viewGroup, int i) {

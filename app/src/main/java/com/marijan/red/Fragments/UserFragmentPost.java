@@ -52,9 +52,6 @@ public class UserFragmentPost extends Fragment {
         homePostAdapter = new HomePostAdapter(getContext(), postList);
         recyclerView_post.setAdapter(homePostAdapter);
         myPosts();
-        int n = postList.size();
-        String s = Integer.toString(n);
-        Log.d("Nr of posts", s);
         return view;
     }
     private void myPosts(){

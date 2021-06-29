@@ -200,7 +200,6 @@ public class LoginActivity extends AppCompatActivity {
                                 startActivity(intent);
                             }
                             else{
-                                Log.d("Poziv", "ovo");
                                 Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                 startActivity(intent);
                             }
